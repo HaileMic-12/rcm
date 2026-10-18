@@ -3,14 +3,11 @@
 import { useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 
-// Removed the "/esm" from these two paths!
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 
-// The background worker connection
-// Use this stable cdnjs worker link instead of unpkg
-// Replace the old workerSrc line with this:
-pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+// Use local bundled worker to prevent Vercel CDN fetch and network errors
+pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 export default function PDFReader() {
   const [numPages, setNumPages] = useState<number | null>(null);
@@ -28,7 +25,7 @@ export default function PDFReader() {
         <button 
           disabled={pageNumber <= 1}
           onClick={() => setPageNumber(pageNumber - 1)}
-          className="px-4 py-2 bg-slate-50 rounded-xl border border-slate-200 disabled:opacity-50 hover:bg-slate-100 font-bold text-slate-700 transition-all"
+          className="px-4 py-2 bg-slate-50 rounded-xl border border-slate-200 disabled:opacity-50 hover:bg-slate-100 font-bold text-slate-700 transition-all cursor-pointer disabled:cursor-not-allowed"
         >
           Previous
         </button>
@@ -38,7 +35,7 @@ export default function PDFReader() {
         <button 
           disabled={numPages === null || pageNumber >= numPages}
           onClick={() => setPageNumber(pageNumber + 1)}
-          className="px-4 py-2 bg-slate-50 rounded-xl border border-slate-200 disabled:opacity-50 hover:bg-slate-100 font-bold text-slate-700 transition-all"
+          className="px-4 py-2 bg-slate-50 rounded-xl border border-slate-200 disabled:opacity-50 hover:bg-slate-100 font-bold text-slate-700 transition-all cursor-pointer disabled:cursor-not-allowed"
         >
           Next
         </button>
