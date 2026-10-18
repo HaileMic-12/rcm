@@ -1,18 +1,18 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA5zbK4LG4Fitmjlv9ADlnAF9xS7erD-a8",
-  authDomain: "rcm-study-app.firebaseapp.com",
-  projectId: "rcm-study-app",
-  storageBucket: "rcm-study-app.firebasestorage.app",
-  messagingSenderId: "951222478105",
-  appId: "1:951222478105:web:fb59888d252566ea539188",
-  measurementId: "G-RGY9RLZCRF"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
-// Initialize Firebase safely for Next.js hot-reloading
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
-// Export the Firestore database instance so your app can use it
 export const db = getFirestore(app);
+export const auth = getAuth(app); // ✅ This fixes the missing member error
