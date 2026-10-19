@@ -129,7 +129,7 @@ export const RADIOLOGY_CURRICULUM: ChapterCurriculum[] = [
   {
     id: "Chapter 8",
     number: 8,
-    title: "The Breast",
+    title: "The breast",
     part: "Section 2 - Thorax, Abdomen and Pelvis",
     sections: [
       "Imaging methods and mammography positioning",
@@ -212,6 +212,42 @@ export const RADIOLOGY_CURRICULUM: ChapterCurriculum[] = [
       "Adnexa, ovaries, and fallopian tubes",
       "Broad ligament, pelvic support, and ureter relations",
       "Vagina, fornices, and pouch of Douglas"
+    ]
+  },
+  {
+    id: "Chapter 15",
+    number: 15,
+    title: "The upper limb",
+    part: "Section 2 - Thorax, Abdomen and Pelvis",
+    sections: [
+      "Shoulder girdle and glenohumeral joint",
+      "Arm, elbow, and forearm anatomy",
+      "Wrist and hand bones, ligaments, and tendons",
+      "Vascular and nerve supply of the upper limb"
+    ]
+  },
+  {
+    id: "Chapter 16",
+    number: 16,
+    title: "The lower limb",
+    part: "Section 2 - Thorax, Abdomen and Pelvis",
+    sections: [
+      "Pelvic girdle, hip joint, and proximal femur",
+      "Thigh, knee joint, and menisci",
+      "Leg, ankle, and foot anatomy",
+      "Vascular and nerve supply of the lower limb"
+    ]
+  },
+  {
+    id: "Chapter 17",
+    number: 17,
+    title: "Obstetrical imaging",
+    part: "Section 2 - Thorax, Abdomen and Pelvis",
+    sections: [
+      "First trimester ultrasound and dating",
+      "Fetal biometry and anatomy survey",
+      "Placenta, umbilical cord, and amniotic fluid",
+      "Fetal Doppler and well-being assessment"
     ]
   }
 ];
